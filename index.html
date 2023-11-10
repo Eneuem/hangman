@@ -4,10 +4,106 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Eratz | Hangman</title>
+    <link rel="shortcut icon" href="/img/HANGMAN/91.png" type="image/png">
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <div class="mobile-hidden" id="desktop-timer">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                <path d="M480-80q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-440q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-800q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-440q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-80Zm0-360Zm112 168 56-56-128-128v-184h-80v216l152 152ZM224-866l56 56-170 170-56-56 170-170Zm512 0 170 170-56 56-170-170 56-56ZM480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720q-117 0-198.5 81.5T200-440q0 117 81.5 198.5T480-160Z"/>
+              </svg>
+              <strong>00:00</strong>
+            </div>
+          </li>
+          <li>HANGMAN</li>
+          <li>
+            <div class="desktop-hidden" id="icons-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q20-22 36-47.5t26.5-53q10.5-27.5 16-56.5t5.5-59q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                <path d="M480-80q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-200v-80h320v80H320Zm10-120q-69-41-109.5-110T180-580q0-125 87.5-212.5T480-880q125 0 212.5 87.5T780-580q0 81-40.5 150T630-320H330Zm24-80h252q45-32 69.5-79T700-580q0-92-64-156t-156-64q-92 0-156 64t-64 156q0 54 24.5 101t69.5 79Zm126 0Z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                <path d="M640-160v-280h160v280H640Zm-240 0v-640h160v640H400Zm-240 0v-440h160v440H160Z"/>
+              </svg>
+            </div>
+            <div id="desktop-button">
+              <a href="">
+                English
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                  <path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/>
+                </svg>
+              </a>
+              <a href="">Hint</a>
+              <a href="">Stats</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="mobile-timer">
+      <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" width="35">
+        <path d="M480-80q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-440q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-800q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-440q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-80Zm0-360Zm112 168 56-56-128-128v-184h-80v216l152 152ZM224-866l56 56-170 170-56-56 170-170Zm512 0 170 170-56 56-170-170 56-56ZM480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720q-117 0-198.5 81.5T200-440q0 117 81.5 198.5T480-160Z"/>
+      </svg>
+      <strong>00:00</strong>
+    </div>
+    <p id="warning">TRY TO GUESS THE GOOD WORD, OR DIE !</p>
+    <div id="interface">
+      <img id="hangman" src="src/img/01.png" alt="" width="400px" height="400px">
+      <div id="alphabet">
+        <p>
+          <span id="A">A</span>
+          <span id="B">B</span>
+          <span id="C">C</span>
+          <span id="D">D</span>
+          <span id="E">E</span>
+          <span id="F">F</span>
+          <span id="G">G</span>
+          <span id="H">H</span>
+          <span id="I">I</span>
+          <span id="J">J</span>
+          <span id="K">K</span>
+          <span id="L">L</span>
+          <span id="M">M</span>
+          <span id="N">N</span>
+          <span id="O">O</span>
+          <span id="P">P</span>
+          <span id="Q">Q</span>
+          <span id="R">R</span>
+          <span id="S">S</span>
+          <span id="T">T</span>
+          <span id="U">U</span>
+          <span id="V">V</span>
+          <span id="W">W</span>
+          <span id="X">X</span>
+          <span id="Y">Y</span>
+          <span id="Z">Z</span>
+        </p>
+      </div>
+    </div>
+    <form id="guessing-form">
+      <div id="guessing-inputs">
+        <input type="text" name="letter1"/>
+        <input type="text" name="letter2"/>
+        <input type="text" name="letter3"/>
+        <input type="text" name="letter4"/>
+        <input type="text" name="letter5"/>
+        <input type="text" name="letter6"/>
+        <input type="text" name="letter7"/>
+      </div>
+      <input type="submit" value="GUESS" />
+    </form>
+    <footer>
+      <div>ERATZ | 2024</div>
+      <div id="app"></div>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/game.ts"></script>
+    <script type="module" src="/src/meca.ts"></script>
   </body>
 </html>

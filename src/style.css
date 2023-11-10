@@ -1,97 +1,267 @@
+/* RESET CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* ROOT CSS */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(17, 17, 17, 0.87);
+  background-color: var(--bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --bg-color: #80B58C;
+  --bg-color2: rgb(82, 128, 92);
+  --header-color: #515895;
+  --header-color2: #353964;
+
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* CUSTOM CSS */
+
+body
+{
+  width: 100%;
+  height: 100%;
 }
 
-body {
-  margin: 0;
+header
+{
+  background: var(--header-color);
+  position: fixed;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+ul
+{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  font-weight: bolder;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+input[type="text"]
+{
+  width: 1em;
+  background: none;
+  border: none;
+  border-bottom: black solid 3px;
   text-align: center;
+  font-size: x-large;
+  font-weight: bolder;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+input[type="submit"]
+{
+  border: var(--header-color);
+  background: var(--header-color);
+  display: block;
+  width: 10%;
+  margin: auto;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: large;
+  font-weight: bold;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+input[type="submit"]:hover
+{
+  border: var(--header-color2);
+  background: var(--header-color2);
+  display: block;
+  width: 10%;
+  margin: auto;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: large;
+  font-weight: bold;
+  
+}
+footer
+{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background: var(--header-color);
+}
+
+img
+{
+  width:80%;
+  margin: auto;
+}
+/* CLASSES */
+.mobile-hidden
+{
+  display: none;
+}
+.tried {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>');
+  background-size: contain; /* Assurez-vous que l'image de fond s'adapte au contenu */
+  background-repeat: no-repeat;
+  background-position: center; /* Centrer l'image de fond */
+  color: transparent; /* Rendre le texte transparent pour voir seulement l'image de fond */
+  text-decoration: line-through; /* Optionnel : barrer le texte si vous voulez le garder visible */
+}
+
+/* IDS */
+
+#mobile-timer
+{
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:xx-large;
+  font-weight: bolder;
+  gap: 5px;
+}
+
+#warning
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:large;
+  font-weight: bold;
+  padding-top: 3em;
+}
+
+#interface
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+#alphabet
+{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: x-large;
+  font-weight: bolder;
+  width: 75%;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+#guessing-form
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 3em;
+}
+
+#guessing-inputs
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1em;
+  gap: 25px;
+}
+
+#desktop-button
+{
+  display: none;
+}
+
+#icons-menu
+{
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 600px) {
+
+
+  img 
+  {
+    width: 50%;
   }
-  a:hover {
-    color: #747bff;
+  .mobile-hidden
+  {
+    display: block;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .desktop-hidden
+  {
+    display: none;
   }
+
+  #mobile-timer
+  {
+    display: none;
+  }
+  #desktop-button
+{
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+#desktop-button a
+{
+  border: var(--bg-color);
+  background: var(--bg-color);
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+} 
+
+#desktop-button a:hover
+{
+  border: var(--bg-color2);
+  background: var(--bg-color2);
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: large;
+  font-weight: bold;
+} 
+
+#desktop-timer
+{
+  padding-left: 20px;
+}
+  
 }
