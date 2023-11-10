@@ -26,22 +26,22 @@ document.getElementById('guessing-form').addEventListener('submit', function(eve
             const inputs = document.querySelectorAll<HTMLInputElement>('#guessing-inputs input');
             for (let i = 0; i < chosenWord.length; i++) {
                 if (chosenWord[i].toUpperCase() === guessedLetter) {
-                    inputs[i].value = guessedLetter; // Affichez la lettre dans le champ correspondant
-                    inputs[i].disabled = true; // Désactivez le champ pour qu'il ne soit plus modifiable
+                    inputs[i].value = guessedLetter; // Affiche la lettre dans le champ correspondant
+                    inputs[i].disabled = true; // Désactive le champ pour qu'il ne soit plus modifiable
                 }
             }
         }
 
-        function updateHangmanImage(attemptsLeft) {
-            // Calculez le numéro de l'image basé sur les tentatives restantes
+        function updateHangmanImage(attemptsLeft: number) {
+            // Calcule le numéro de l'image basé sur les tentatives restantes
             const imageNumber = 10 - attemptsLeft;
             const hangmanImg = document.getElementById('hangman') as HTMLImageElement;
             if (hangmanImg) {
-                hangmanImg.src = `src/img/0${imageNumber}.png`; // Utilisez le chemin correct vers vos images
+                hangmanImg.src = `src/img/0${imageNumber}.png`; // Utilise le chemin correct vers vos images
             }
         }
 
-        // Marquez la lettre comme essayée dans l'alphabet
+        // Marque la lettre comme essayée dans l'alphabet
         document.getElementById(guessedLetter).classList.add('tried');
     }
 });
