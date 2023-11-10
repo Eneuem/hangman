@@ -88,22 +88,17 @@
     </div>
     <form id="guessing-form">
       <div id="guessing-inputs">
-        <input type="text" name="letter1"/>
-        <input type="text" name="letter2"/>
-        <input type="text" name="letter3"/>
-        <input type="text" name="letter4"/>
-        <input type="text" name="letter5"/>
-        <input type="text" name="letter6"/>
-        <input type="text" name="letter7"/>
       </div>
-      <input type="submit" value="GUESS" />
+      <div id="guess-wrap">
+        <input type="text" id="guess-input" maxlength="1" />
+        <input type="submit" value="OK" />
+      </div>
     </form>
     <footer>
-      <div>ERATZ | 2024</div>
-      <div id="app"></div>
+      <div>ERATZ | 2024 |<div id="app"></div></div>
     </footer>
-    <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/game.ts"></script>
+    <script type="module" src="/src/main.ts"></script>
     <script type="module" src="/src/meca.ts"></script>
   </body>
 </html>
